@@ -1,0 +1,159 @@
+.courses {
+    margin-top: $mg-2 - 1;
+    .courses_content {
+        width: 90%;
+        margin: auto;
+        padding: 0 $mg-1 + 5;
+        .courses_intro {
+            background-color: $color-gray-5;
+            margin-top: 15px;
+            width: 100%;
+            height: 93%;
+            padding: ($pd-3 * 6.5) ($pd-3 + $pd-1) ($pd-3 * 7) ($pd-3 + $pd-1);
+            p:first-child {
+                @include text($color-black-0, $fs-2 - 1, $fw-bold + 100);
+                margin: 0;
+            }
+            p:last-child {
+                @include text($color-black-0, $fs-0 + 1, $fw-regular);
+                line-height: 1.5em;
+                margin: 0;
+            }
+        }
+        .courses_nav {
+            .nav {
+                width: 100%;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .nav-item {
+                    .nav-link {
+                        align-items: center;
+                        border: none;
+                        border-radius: 0;
+                        padding: $pd-1 ($pd-1 + $pd-0);
+                        line-height: $line-height-0 - .1;
+                        @include text($color-black-0, $fs-0, $fw-normal);
+                        &.active {
+                            border-bottom: 5px solid $color-blue;
+                        }
+                    }
+                }
+            }
+            .tab-content {
+                margin-top: $mg-2 - 7;
+                .courses_item {
+                    .card {
+                        margin-bottom: 5px;
+                        cursor: pointer;
+                        // box-shadow: 0 2.5px rgba(20, 23, 28, .18);
+                        box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+                        &:hover {
+                            transition: all .7s;
+                            // box-shadow: 0 0 8px 5px rgba(20, 23, 28, .1), 0 10px 4px 0 rgba(40, 48, 61, 0.1);
+                            box-shadow: 0 2px 8px 2px rgba(20, 23, 28, .15);
+                        }
+                        .card_img {
+                            position: relative;
+                            overflow: hidden;
+                            img {
+                                border-radius: 0;
+                                width: 100%;
+                                height: 122px;
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+                            .img_bg {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                top: 0;
+                                left: 0;
+                                background-color: rgba(20, 23, 28, .4);
+                                opacity: 0;
+                            }
+                            &:hover {
+                                .img_bg {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        .card-body {
+                            padding: $pd-2 $pd-1 $pd-1 $pd-2;
+                            .card-title {
+                                @include text($color-black-0, $fs-0, $fw-bold);
+                                width: 90%;
+                                height: 42px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                margin: 0 0 $mg-1;
+                            }
+                            .card-text {
+                                margin: 0 0 $mg-1 + 4;
+                                @include text($color-gray-4, $fs-1 - 1, $fw-normal);
+                                display: block;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .rating {
+                                display: flex;
+                                // padding-bottom: $pd-0;
+                                height: 30px;
+                                .rating_star {
+                                    @include text($color-yellow, $fs-1, $fw-normal);
+                                }
+                                span:nth-child(2) {
+                                    @include text($color-black-light, $fs-1, $fw-bold);
+                                }
+                                span:last-child {
+                                    @include text($color-gray-4, $fs-1 - 1, $fw-regular);
+                                    margin-left: ($mg-0 + 3);
+                                }
+                            }
+                            .price {
+                                text-align: right;
+                                span:first-child {
+                                    text-decoration: line-through;
+                                    margin-right: $mg-0;
+                                    @include text($color-black-0, $fs-1, $fw-regular);
+                                }
+                                span:last-child {
+                                    @include text($color-black-0, $fs-2 - 2, $fw-bold);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('large')) {
+    .courses {
+        .courses_content {
+            width: 100%;
+            .courses_intro {
+                display: none;
+            }
+        }
+        .courses_nav {
+            .nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .nav-item {
+                    .nav-link {
+                        &:active {
+                            border-bottom: 6px solid $color-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,196 @@
+    header {
+        border-bottom: 1px solid $color-gray-3;
+        .navbar {
+            .navbar-toggler {
+                border: none;
+                padding: 0;
+                &:focus {
+                    outline: none;
+                }
+            }
+            .header_left {
+                display: flex;
+                align-items: center;
+                .navbar-brand {
+                    // xet cho tung the con
+                    flex-grow: 1;
+                    img {
+                        width: 110px;
+                    }
+                }
+                .header_categories {
+                    flex-grow: 1;
+                    @include text($color-black-light, $fs-1, $fw-regular);
+                    i {
+                        margin-right: 2px;
+                    }
+                }
+                .formSearch {
+                    flex-grow: 5;
+                    .form-control {
+                        border: none;
+                        background-color: $color-gray-1;
+                        padding: 10px 12px;
+                        border-top-left-radius: 2px;
+                        border-bottom-left-radius: 2px;
+                        height: 45px;
+                        &::placeholder {
+                            @include text(&$color-black-0, &$fs-1, &$fw-regular);
+                        }
+                        &:focus {
+                            box-shadow: none;
+                            background-color: $color-white-0;
+                            border: 1px solid $color-gray-6;
+                            border-right: none;
+                        }
+                        &:focus+.input-group-append {
+                            .input-group-text {
+                                background-color: $color-white-0;
+                                color: $color-red-0;
+                                border: 1px solid $color-gray-6;
+                                border-left: none;
+                            }
+                            &:hover {
+                                .input-group-text {
+                                    background-color: $color-red-0;
+                                    color: $color-white-0;
+                                }
+                            }
+                        }
+                    }
+                    .input-group-append {
+                        .input-group-text {
+                            border: none;
+                            background-color: $color-gray-1;
+                            color: $color-red-0;
+                            border-top-right-radius: 2px;
+                            border-bottom-right-radius: 2px;
+                        }
+                        &:hover {
+                            .input-group-text {
+                                background-color: $color-red-0;
+                                color: $color-white-0;
+                            }
+                        }
+                    }
+                }
+            }
+            .header_right {
+                .navbar-nav {
+                    width: 100%;
+                    justify-content: space-between;
+                    transition: none;
+                    .nav-item {
+                        .nav-link {
+                            @include text($color-black-light, $fs-1, $fw-regular);
+                            padding: $pd-1 + 2 $pd-3 - 5;
+                        }
+                        &:hover {
+                            background-color: $color-gray-1;
+                            border: 1px solid $color-black-dark;
+                        }
+                    }
+                    .nav-item:nth-child(3) {
+                        border-radius: 50%;
+                    }
+                    .nav-item:nth-last-child(1) {
+                        .btn--customize {
+                            box-shadow: none;
+                        }
+                    }
+                    // .nav-link--1,
+                    // .nav-link--2 {
+                    //     opacity: 0;
+                    //     animation: slideDown 1s linear 1;
+                    //     // khong tro lai vi tri ban dau laf opacity: 0
+                    //     animation-fill-mode: both;d
+                    // }
+                    // .nav-link--2 {
+                    //     animation-delay: 0.5s;
+                    // }
+                    // tao don song cho cac nav-link
+                    // to: toi 2 la dung
+                    // through: chay toi 3
+                    @for $num from 0 through 1 {
+                        .nav-link--#{$num + 1} {
+                            opacity: 0;
+                            animation: slideDown 1s linear $num*0.5s 1;
+                            // khong tro lai vi tri ban dau laf opacity: 0
+                            animation-fill-mode: both;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+        // 50% {
+        //     transform: translateY(-50px);
+        //     opacity: 1;
+        // }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @media screen and (max-width: getBreakpoints('extra-large')) {
+        .header_right {
+            .navbar-nav {
+                .nav-link--1,
+                .nav-link--2 {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+    @media screen and (max-width: getBreakpoints('medium')) {
+        .header_left {
+            display: flex;
+            .navbar-brand {
+                order: 2;
+                img {
+                    text-align: center;
+                }
+            }
+            .header_categories {
+                display: none;
+            }
+            .formSearch {
+                order: 1;
+                .form-control {
+                    display: none;
+                }
+                .input-group-append {
+                    .input-group-text {
+                        background-color: $color-white-0 !important;
+                        padding: 0 !important;
+                        color: $color-black-light !important;
+                        font-size: $fs-2 !important;
+                    }
+                }
+            }
+        }
+        .header_right {
+            .collapse {
+                display: block;
+                .navbar-nav {
+                    .nav-item:nth-child(3) {
+                        .nav-link {
+                            text-align: right;
+                            padding: 0;
+                        }
+                    }
+                    .nav-item:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }

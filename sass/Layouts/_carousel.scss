@@ -1,0 +1,91 @@
+.udemyCarousel {
+    background-image: url('../img/cover.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    position: relative;
+    .udemyCarousel__content {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        width: 500px;
+        padding: 0 $pd-1 + 5;
+        h1 {
+            @include text($color-white-0,
+            $fs-4,
+            $fw-bold);
+            line-height: $line-height-0 - 0.1;
+            margin: 0 0 $mg-1;
+        }
+        p {
+            @include text($color-white-0,
+            $fs-2 - 2,
+            $fw-normal);
+            line-height: $line-height-0 + 0.18;
+            text-shadow: 0 2px 4px rgba(41, 48, 59, .55);
+            margin: 0 0 $mg-2 - 5;
+        }
+        .input-group--customize {
+            .form-control {
+                border-radius: 0;
+                border: none;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                background-clip: border-box;
+                background-color: $color-white-0;
+                height: 50px;
+                padding: $pd-1 + 1 $pd-3 - 3;
+                &::placeholder {
+                    @include text($color-gray-2,
+                    $fs-2,
+                    100);
+                }
+                &:focus {
+                    box-shadow: none;
+                    background-color: $color-white-0;
+                    // Mau cua duong vien
+                    border-color: $color-gray-7;
+                }
+            }
+            .input-group-append {
+                .input-group-text {
+                    border-radius: 0;
+                    border: none;
+                    border-top-right-radius: 2px;
+                    border-bottom-right-radius: 2px;
+                    background-color: $color-white-0;
+                    padding: $pd-1 + 1 $pd-1 + 5;
+                    @include text($color-red-0,
+                    $fs-2,
+                    $fw-normal);
+                    &:hover {
+                        background-color: $color-red-0;
+                        color: $color-white-0;
+                        border-top: none;
+                        border-bottom: none;
+                        // border-top: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: getBreakpoints('extra-large')) {
+    .udemyCarousel {
+        .udemyCarousel__content {
+            left: 2%;
+        }
+    }
+}
+
+@media screen and (min-width: getBreakpoints('small')) {
+    .udemyCarousel {
+        .udemyCarousel__content {
+            width: 500px;
+        }
+    }
+}

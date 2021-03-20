@@ -1,0 +1,103 @@
+.student_viewing {
+    margin-top: $mg-2;
+    .student_content {
+        width: 90%;
+        padding: 0 $pd-2;
+        margin: auto;
+        h2 {
+            @include text($color-black-0, $fs-2 - 1, $fw-bold);
+            line-height: $line-height-0 + 0.04;
+            margin-bottom: $mg-1;
+        }
+        .student_courses {
+            .card {
+                margin-bottom: 5px;
+                cursor: pointer;
+                box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+                &:hover {
+                    transition: all .6s;
+                    box-shadow: 0 2px 8px 2px rgba(20, 23, 28, .15);
+                }
+                .card_img {
+                    position: relative;
+                    overflow: hidden;
+                    img {
+                        border-radius: 0;
+                        width: 100%;
+                        height: 122px;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    .img_bg {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba(20, 23, 28, .3);
+                        opacity: 0;
+                    }
+                    &:hover {
+                        .img_bg {
+                            opacity: 1;
+                        }
+                    }
+                }
+                .card-body {
+                    padding: $pd-2 $pd-1 $pd-1 $pd-2;
+                    .card-title {
+                        @include text($color-black-0, $fs-0, $fw-bold);
+                        height: 42px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        margin: 0 0 $mg-1;
+                    }
+                    .card-text {
+                        margin: 0 0 $mg-1 + 4;
+                        @include text($color-gray-4, $fs-1 - 1, $fw-normal);
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .rating {
+                        display: flex;
+                        // padding-bottom: $pd-0;
+                        height: 30px;
+                        .rating_star {
+                            @include text($color-yellow, $fs-1, $fw-normal);
+                        }
+                        span:nth-child(2) {
+                            @include text($color-black-light, $fs-1, $fw-bold);
+                        }
+                        span:last-child {
+                            @include text($color-gray-4, $fs-1 - 1, $fw-regular);
+                            margin-left: ($mg-0 + 3);
+                        }
+                    }
+                    .price {
+                        text-align: right;
+                        span:first-child {
+                            text-decoration: line-through;
+                            margin-right: $mg-0;
+                            @include text($color-black-0, $fs-1, $fw-regular);
+                        }
+                        span:last-child {
+                            @include text($color-black-0, $fs-2 - 2, $fw-bold);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('large')) {
+    .student_viewing {
+        .student_content {
+            width: 100%;
+        }
+    }
+}

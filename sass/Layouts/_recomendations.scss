@@ -1,0 +1,26 @@
+.recommendations {
+    margin-top: $mg-2;
+    .recommendations__line {
+        background: linear-gradient(to left, $color-red-0, $color-purple);
+        height: 8px;
+    }
+    .recommendations__content {
+        background-color: $color-black-0;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .child {
+            text-align: center;
+            h2 {
+                @include text($color-white-0, $fs-3, $fw-bold);
+                letter-spacing: 2px;
+                margin-bottom: $mg-2 - 9;
+            }
+            p {
+                @include text($color-white-0, $fs-0, $fw-normal);
+                margin-bottom: $mg-2 - 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+footer {
+    .footer__content {
+        width: 100%;
+        .footer_top {
+            margin: 40px 0 30px;
+            padding: 0 20px;
+            .top_list {
+                margin-bottom: 10.5px;
+                ul {
+                    margin: 0;
+                    // padding: 0 15px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    height: 90px;
+                    li {
+                        flex: 25%;
+                        flex-grow: 0;
+                        list-style: none;
+                        a {
+                            text-decoration: none;
+                            @include text($color-blue, $fs-1, $fw-normal);
+                            &:hover,
+                             :focus {
+                                color: $color-black-1;
+                            }
+                        }
+                        &:first-child,
+                        &:nth-child(2) {
+                            a {
+                                @include text($color-blue, $fs-1, $fw-bold + 100);
+                                &:hover,
+                                 :focus {
+                                    color: $color-black-1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top_select {
+                text-align: right;
+                // padding: 0 15px;
+                select {
+                    border: 1px solid $color-gray-4;
+                    padding: 9px 26px 9px 10px;
+                    @include text($color-gray-4, $fs-1, $fw-normal);
+                    line-height: 18px;
+                    &:hover {
+                        color: $color-black-0;
+                        border: 1px solid $color-black-0;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                    option {
+                        border: 1px solid $color-black-0;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+        .footer_bottom {
+            padding: 0 $pd-3;
+            margin: $mg-3 0;
+            .bottom_left {
+                padding: 0 15px;
+                img {
+                    width: 110px;
+                }
+                span {
+                    @include text($color-gray-4, $fs-1, $fw-normal);
+                    line-height: $line-height-1;
+                    margin: 0 $mg-1 * 2;
+                }
+            }
+            .bottom_right {
+                text-align: right;
+                ul {
+                    margin-bottom: $mg-1 + .5;
+                    margin-left: -($mg-0 + 3);
+                    li {
+                        display: inline;
+                        list-style: none;
+                        padding: 0 $pd-0 + 1;
+                        a {
+                            @include text($color-blue, $fs-1, $fw-regular);
+                            text-decoration: none;
+                        }
+                    }
+                    .right_hidden {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .hr--footer {
+            border-top: 6px solid #ec5252;
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width: getBreakpoints('small')) and (max-width: getBreakpoints('medium')) {
+    footer {
+        .footer__content {
+            width: 100%;
+            .footer_bottom {
+                .bottom_right {
+                    text-align: left;
+                    ul {
+                        .right_hidden {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('medium')) {
+    footer {
+        .footer__content {
+            .footer_top {
+                .top_list {
+                    display: none;
+                }
+                .top_select {
+                    text-align: left;
+                }
+            }
+            .footer_bottom {
+                .bottom_left {
+                    display: block;
+                }
+                .bottom_right {
+                    text-align: left;
+                    ul {
+                        .right_hidden {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+.comment {
+    background-color: $color-gray-5;
+    .comment__content {
+        width: 90%;
+        margin: auto;
+        padding: $pd-4 $pd-2 + 1;
+        h2 {
+            margin: 0;
+            line-height: $line-height-0 - .1;
+            @include text($color-black-0, $fs-3, $fw-bold);
+        }
+        .comment_ticket {
+            margin-top: $mg-2 - 5;
+            .ticket {
+                background-color: $color-white-0;
+                box-shadow: 0 1px 3px 0 rgba(20, 23, 28, .15);
+                padding: $pd-4;
+                height: 100%;
+                min-height: 260px;
+                .author {
+                    margin-bottom: $mg-2 - 7;
+                    img {
+                        max-width: 64px;
+                        display: inline;
+                        border-radius: 50%;
+                        margin-right: $mg-2 - 7;
+                    }
+                    span {
+                        @include text($color-black-0, $fs-0 + 1, $fw-bold);
+                        line-height: $line-height-0 + 0.07;
+                    }
+                }
+                p {
+                    @include text($color-black-0, $fs-0 + 1, $fw-regular);
+                    line-height: $line-height-0 + 0.07;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('large')) {
+    .comment {
+        .comment__content {
+            width: 100%;
+            .comment_ticket {
+                .ticket {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.banner {
+    background: linear-gradient(to left, $color-red-0, $color-purple);
+    .banner__content {
+        // width: 95%;
+        margin: 0 2 * $mg-2 $mg-1 + 4;
+        padding: 0 $pd-3 - 5;
+        .banner_item {
+            display: flex;
+            padding: $pd-3 $pd-3 + 5;
+            .item_icon {
+                @include text($color-white-0, $fs-4 + 10, $fw-normal);
+                margin: -($mg-2 - 7) $mg-1;
+            }
+            .item_intro {
+                p:first-child {
+                    @include text($color-white-0, $fs-0 + 2, $fw-bold + 100);
+                    margin: 0;
+                }
+                p:last-child {
+                    @include text($color-white-0, $fs-0, $fw-normal);
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('large')) {
+    .banner {
+        .banner__content {
+            .banner_item {
+                .item_icon {
+                    display: none;
+                }
+                .item_intro {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: getBreakpoints('medium')) {
+    .banner {
+        display: none;
+    }
+}
